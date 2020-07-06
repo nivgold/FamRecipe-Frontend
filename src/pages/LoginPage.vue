@@ -106,8 +106,17 @@ export default {
     },
     async Login() {
       try {
+        // const response = await this.axios.post(
+        //   "http://localhost:5001/login",
+        //   {
+        //     username: this.form.username,
+        //     password: this.form.password
+        //   },
+        //   { withCredentials: true }
+        // );
+
         const response = await this.axios.post(
-          "http://localhost:5001/login",
+          "https://famrecipe-backend.herokuapp.com/login",
           {
             username: this.form.username,
             password: this.form.password
@@ -115,8 +124,13 @@ export default {
           { withCredentials: true }
         );
 
+        // const profile_response = await this.axios.get(
+        //   "http://localhost:5001/users/personalDetails",
+        //   {withCredentials: true}
+        // )
+
         const profile_response = await this.axios.get(
-          "http://localhost:5001/users/personalDetails",
+          "https://famrecipe-backend.herokuapp.com/users/personalDetails",
           {withCredentials: true}
         )
 
