@@ -32,10 +32,17 @@ export default {
     methods: {
         async getFamilyRecipes(){
             try {
+                // const response = await this.axios.get(
+                //     "http://localhost:5001/users/familyRecipes",
+                //     {withCredentials: true}
+                // );
+
                 const response = await this.axios.get(
-                    "http://localhost:5001/users/familyRecipes",
+                    "https://famrecipe-backend.herokuapp.com/users/familyRecipes",
                     {withCredentials: true}
                 );
+
+
                 const recipes = response.data;
                 this.familyRecipes = [];
                 this.familyRecipes.push(...recipes);

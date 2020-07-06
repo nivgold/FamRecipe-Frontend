@@ -35,10 +35,15 @@ export default {
     methods: {
         async getPersonalDetails() {
             try{
+                // const response = await this.axios.get(
+                //     "http://localhost:5001/users/personalDetails",
+                //     {withCredentials: true}
+                // );
+
                 const response = await this.axios.get(
-                    "http://localhost:5001/users/personalDetails",
+                    "https://famrecipe-backend.herokuapp.com/users/personalDetails",
                     {withCredentials: true}
-                )
+                );
 
                 this.profile = response.data;
             }catch (error) {

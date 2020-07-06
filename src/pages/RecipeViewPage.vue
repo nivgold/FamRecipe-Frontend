@@ -45,7 +45,9 @@ export default {
         let response;
 
         try {
-          response = await this.axios.get(`http://localhost:5001/recipes/recipeID/${this.$route.params.recipeId}`);
+          // response = await this.axios.get(`http://localhost:5001/recipes/recipeID/${this.$route.params.recipeId}`);
+          
+          response = await this.axios.get(`https://famrecipe-backend.herokuapp.com/recipes/recipeID/${this.$route.params.recipeId}`);
 
           if (response.status !== 200) this.$router.replace("/NotFound");
         } catch (error) {
@@ -56,10 +58,15 @@ export default {
 
         if (this.$root.store.username){
           // calling recipe info if the user authenticated
+          // const recipe_info_response = await this.axios.get(
+          //   `http://localhost:5001/users/recipesInfo/[${this.$route.params.recipeId}]`,
+          //   {withCredentials: true}
+          // );
+
           const recipe_info_response = await this.axios.get(
-            `http://localhost:5001/users/recipesInfo/[${this.$route.params.recipeId}]`,
+            `https://famrecipe-backend.herokuapp.com/users/recipesInfo/[${this.$route.params.recipeId}]`,
             {withCredentials: true}
-          )
+          );
 
           let recipe_info = recipe_info_response.data;
           const id = Object.keys(recipe_info)[0];
@@ -67,8 +74,16 @@ export default {
           this.recipe = Object.assign({}, response.data, recipe_info[id]);
 
           // add the recipe to the watched user's recipes
+          // const add_watched_recipes_respond = await this.axios.post(
+          //   "http://localhost:5001/users/addWatchedRecipe",
+          //   {
+          //     recipeID: this.$route.params.recipeId
+          //   },
+          //   {withCredentials: true}
+          // );
+
           const add_watched_recipes_respond = await this.axios.post(
-            "http://localhost:5001/users/addWatchedRecipe",
+            "https://famrecipe-backend.herokuapp.com/users/addWatchedRecipe",
             {
               recipeID: this.$route.params.recipeId
             },
@@ -87,8 +102,13 @@ export default {
       try{
         let response;
         try{
+            // response = await this.axios.get(
+            //   `http://localhost:5001/users/personalRecipe/recipeID/${this.$route.params.recipeId}`,
+            //   {withCredentials: true}
+            // );
+
             response = await this.axios.get(
-              `http://localhost:5001/users/personalRecipe/recipeID/${this.$route.params.recipeId}`,
+              `https://famrecipe-backend.herokuapp.com/users/personalRecipe/recipeID/${this.$route.params.recipeId}`,
               {withCredentials: true}
             );
 

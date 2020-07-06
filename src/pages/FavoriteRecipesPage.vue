@@ -42,8 +42,13 @@ export default {
         },
         async getPersonalRecipes() {
             try {
+                // const response = await this.axios.get(
+                //     "http://localhost:5001/users/favoriteRecipes",
+                //     {withCredentials: true}
+                // );
+
                 const response = await this.axios.get(
-                    "http://localhost:5001/users/favoriteRecipes",
+                    "https://famrecipe-backend.herokuapp.com/users/favoriteRecipes",
                     {withCredentials: true}
                 );
 
@@ -63,10 +68,17 @@ export default {
                 });
 
                 // getting the user information
+                // const recipes_user_info_response = await this.axios.get(
+                //     `http://localhost:5001/users/recipesInfo/${JSON.stringify(recipes_id).replace(/ /g,'')}`,
+                //     {withCredentials: true}
+                // );
+
                 const recipes_user_info_response = await this.axios.get(
-                    `http://localhost:5001/users/recipesInfo/${JSON.stringify(recipes_id).replace(/ /g,'')}`,
+                    `https://famrecipe-backend.herokuapp.com/users/recipesInfo/${JSON.stringify(recipes_id).replace(/ /g,'')}`,
                     {withCredentials: true}
                 );
+
+
                 let recipes_user_info = recipes_user_info_response.data;
 
                 recipes.map((x) => {

@@ -59,8 +59,15 @@ export default {
 
         this.search_pressed = false;
         this.overlay_show = true;
+        // const response = await this.axios.get(
+        //   "http://localhost:5001/recipes/search",
+        //   {
+        //     params: query_paramas
+        //   }
+        // );
+
         const response = await this.axios.get(
-          "http://localhost:5001/recipes/search",
+          "https://famrecipe-backend.herokuapp.com/recipes/search",
           {
             params: query_paramas
           }
@@ -78,8 +85,13 @@ export default {
 
 
         if (this.$root.store.username){
+          // const recipes_user_info_response = await this.axios.get(
+          //   `http://localhost:5001/users/recipesInfo/${JSON.stringify(recipes_ids).replace(/ /g,'')}`,
+          //   {withCredentials: true}
+          // );
+
           const recipes_user_info_response = await this.axios.get(
-            `http://localhost:5001/users/recipesInfo/${JSON.stringify(recipes_ids).replace(/ /g,'')}`,
+            `https://famrecipe-backend.herokuapp.com/users/recipesInfo/${JSON.stringify(recipes_ids).replace(/ /g,'')}`,
             {withCredentials: true}
           );
 

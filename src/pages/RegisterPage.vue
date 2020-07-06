@@ -249,8 +249,21 @@ export default {
     async Register() {
       let response;
       try {
+        // response = await this.axios.post(
+        //   "http://localhost:5001/register",
+        //   {
+        //     username: this.form.username,
+        //     password: this.form.password,
+        //     first_name: this.form.firstName,
+        //     last_name: this.form.lastName,
+        //     country: this.form.country,
+        //     email: this.form.email,
+        //     image: this.form.image
+        //   }
+        // );
+
         response = await this.axios.post(
-          "http://localhost:5001/register",
+          "https://famrecipe-backend.herokuapp.com/register",
           {
             username: this.form.username,
             password: this.form.password,
@@ -261,6 +274,7 @@ export default {
             image: this.form.image
           }
         );
+
         this.$router.push("/login");
         // console.log(response);
       } catch (err) {

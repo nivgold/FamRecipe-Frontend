@@ -64,8 +64,16 @@ export default {
     methods: {
         async addToFavorite () {
             try{
+                // const response = await this.axios.post(
+                // "http://localhost:5001/users/addFavoriteRecipe",
+                //     {
+                //         recipeID: this.recipe_id
+                //     },
+                //     {withCredentials: true}
+                // );
+
                 const response = await this.axios.post(
-                "http://localhost:5001/users/addFavoriteRecipe",
+                "https://famrecipe-backend.herokuapp.com/users/addFavoriteRecipe",
                     {
                         recipeID: this.recipe_id
                     },
@@ -84,8 +92,13 @@ export default {
         },
         async removeFromFavorite () {
             try{
+                // const response = await this.axios.delete(
+                //     `http://localhost:5001/users/removeFavoriteRecipe/recipeID/${this.recipe_id}`,
+                //     {withCredentials: true}
+                // );
+
                 const response = await this.axios.delete(
-                    `http://localhost:5001/users/removeFavoriteRecipe/recipeID/${this.recipe_id}`,
+                    `https://famrecipe-backend.herokuapp.com/users/removeFavoriteRecipe/recipeID/${this.recipe_id}`,
                     {withCredentials: true}
                 );
 
