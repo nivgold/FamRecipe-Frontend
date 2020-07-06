@@ -5,7 +5,8 @@
          It is a simple and fun recipes website. The website enables to search for recipes, view personal
          and family recipes. <br> <br>
          Some of the previous works we did be found <a href="https://sise-web-development-environments.github.io/assignment2-niv-ron/">here</a>. <br>
-        It is a PACMAN game made with HTML5 canvas and JS with JQuery.
+        It is a PACMAN game made with HTML5 canvas and JS with JQuery. <br><br><br>
+		The Github for this project can be found <a href="https://github.com/SISE-Web-Development-Environments/assignment-3-3-niv_ron">here</a>.
       </p>
   </div>
 </template>
