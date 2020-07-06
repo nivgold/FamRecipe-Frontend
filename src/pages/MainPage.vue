@@ -75,10 +75,18 @@ export default {
         let random_recipes_ids = random_recipes.map((x) => {
           return x.id;
         });
+
+        // const random_recipes_user_info_response = await this.axios.get(
+        //   `http://localhost:5001/users/recipesInfo/${JSON.stringify(random_recipes_ids).replace(/ /g,'')}`,
+        //   {withCredentials: true}
+        // );
+
         const random_recipes_user_info_response = await this.axios.get(
-          `http://localhost:5001/users/recipesInfo/${JSON.stringify(random_recipes_ids).replace(/ /g,'')}`,
+          `https://famrecipe-backend.herokuapp.com/users/recipesInfo/${JSON.stringify(random_recipes_ids).replace(/ /g,'')}`,
           {withCredentials: true}
         );
+
+
         let random_recipes_user_info = random_recipes_user_info_response.data;
         random_recipes.map((x) => {
           const id = x.id;
@@ -89,8 +97,13 @@ export default {
     },
     async getLastWatchedRecipes() {
       // Last Watched Recipes
+      // const last_reviewed_response = await this.axios.get(
+      //   "http://localhost:5001/users/lastWatchedRecipes",
+      //   {withCredentials: true}
+      // );
+
       const last_reviewed_response = await this.axios.get(
-        "http://localhost:5001/users/lastWatchedRecipes",
+        "https://famrecipe-backend.herokuapp.com/users/lastWatchedRecipes",
         {withCredentials: true}
       );
 
@@ -102,10 +115,17 @@ export default {
           return parseInt(Object.keys(x)[0]);
         });
 
+        // const last_reviewed_user_info_response = await this.axios.get(
+        //   `http://localhost:5001/users/recipesInfo/${JSON.stringify(last_reviewed_recipes_ids).replace(/ /g,'')}`,
+        //   {withCredentials: true}
+        // );
+
         const last_reviewed_user_info_response = await this.axios.get(
-          `http://localhost:5001/users/recipesInfo/${JSON.stringify(last_reviewed_recipes_ids).replace(/ /g,'')}`,
+          `https://famrecipe-backend.herokuapp.com/users/recipesInfo/${JSON.stringify(last_reviewed_recipes_ids).replace(/ /g,'')}`,
           {withCredentials: true}
         );
+
+
         let last_reviewed_user_info = last_reviewed_user_info_response.data;
 
         last_reviewed_recipes.map((x) => {
