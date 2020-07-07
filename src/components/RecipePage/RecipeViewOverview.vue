@@ -16,20 +16,23 @@
                                     <img src="../../assets/star-fill.png"> Saved In Favorites
                                 </b-col>
                             </b-row>
-                            <b-row class="mt-4" v-if="recipe.vegetarian||recipe.vegan">
+                            <b-row class="mt-4" v-if="recipe.vegetarian||recipe.vegan||recipe.gluten_free">
                                 <b-col v-if="recipe.vegetarian">
                                     <img src="../../assets/broccoli.png" alt=""> Vegetarian
                                 </b-col>
                                 <b-col v-if="recipe.vegan">
                                     <img src="../../assets/vegan.png" alt=""> Vegan
                                 </b-col>
+                                <b-col v-if="recipe.gluten_free">
+                                    <img src="../../assets/gluten-free.png" alt=""> Gluten Free
+                                </b-col>
                             </b-row>
                             <b-row class="mt-4">
                                 <b-col>
-                                    <img src="../../assets/servings.png" alt=""> {{this.recipe.meals}} Meals
+                                    <img src="../../assets/servings.png" alt=""> {{recipe.meals}} Meals
                                 </b-col>
-                                <b-col v-if="recipe.gluten_free">
-                                    <img src="../../assets/gluten-free.png" alt=""> Gluten Free
+                                <b-col>
+                                    <img src="../../assets/timer.png" alt=""> {{recipe.ready_in_minutes}} minutes
                                 </b-col>
                             </b-row>
                         </div>
