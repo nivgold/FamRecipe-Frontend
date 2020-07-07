@@ -49,8 +49,8 @@
 export default {
   name: "App",
   methods: {
-    Logout() {
-      this.$root.store.logout();
+    async Logout() {
+      await this.$root.store.logout();
       this.$root.toast("Logout", "Logged Out", "success");
 
       this.$router.replace("/").catch(() => {
