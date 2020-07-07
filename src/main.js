@@ -100,10 +100,16 @@ const shared_data = {
   },
   async logout() {
     try{
-      const response = await axios(
-        "http://localhost:5001/logout",
+      // const response = await axios(
+      //   "http://localhost:5001/logout",
+      //   {withCredentials: true}
+      // );
+
+      const response = await axios.get(
+        "https://famrecipe-backend.herokuapp.com/logout",
         {withCredentials: true}
-      )
+      );
+
       if (response.status==200){
         localStorage.removeItem("username");
         localStorage.removeItem("image");
